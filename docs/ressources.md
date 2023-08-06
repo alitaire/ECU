@@ -2,6 +2,9 @@
 
 ## Vidéos
 
+### ECU
+- [Anatomie de calculateurs moteur automobiles (ECU)](https://www.youtube.com/watch?v=sOIk2X0nzzI)
+
 ### Motors
 - [Types of Combustion Chamber for CI Engine](https://www.youtube.com/watch?v=mvDkWnownI8)
 - [Types of Combustion Chamber for SI Engine](https://www.youtube.com/watch?v=GR0oI5sDCww)
