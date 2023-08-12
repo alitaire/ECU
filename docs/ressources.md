@@ -19,5 +19,8 @@
 ### Sensors
 - [EVERY ENGINE SENSOR EXPLAINED](https://www.youtube.com/watch?v=dK4mb1yS0dY)
 
+### Engine mapping
+- [If You Understand Volumetric Efficiency You Understand Engines](https://www.youtube.com/watch?v=1eRsaOxxiUc)
+
 ### Communication protocols
 - [Communication protocol in Embedded System | Synchronous & Asynchronous communication](https://www.youtube.com/watch?v=bdgCFkc_RXY&list=PLbGlpmZLQWJceYTFXwBjYnUNN2vyVKYNA)
