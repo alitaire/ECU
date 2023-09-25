@@ -10,6 +10,7 @@
 - [Types of Combustion Chamber for CI Engine](https://www.youtube.com/watch?v=mvDkWnownI8)
 - [Types of Combustion Chamber for SI Engine](https://www.youtube.com/watch?v=GR0oI5sDCww)
 - [Battery And Coil Ignition System](https://www.youtube.com/watch?v=8iBLAAJR298)
+- [A DETAILED overview of KNOCK and PRE-IGNITION - BOOST SCHOOL #7](https://www.youtube.com/watch?v=G5bJlFHKOX0)
 
 ### Injectors
 - [The Story Of Fuel Injection](https://www.youtube.com/watch?v=N0RIGWUnVFc)
