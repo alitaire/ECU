@@ -5,6 +5,7 @@
 ### ECU
 - [Anatomie de calculateurs moteur automobiles (ECU)](https://www.youtube.com/watch?v=sOIk2X0nzzI)
 - [Anatomie d'un calculateur habitacle automobile (BSI)](https://www.youtube.com/watch?v=NaPsAOXd4eA&t=50s)
+- [Beginner guide to ECU install and wiring + editable wiring diagram download](https://www.youtube.com/watch?v=z-onJjFyE3E)
 
 ### Motors
 - [Types of Combustion Chamber for CI Engine](https://www.youtube.com/watch?v=mvDkWnownI8)
