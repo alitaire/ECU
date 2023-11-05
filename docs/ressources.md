@@ -28,3 +28,8 @@
 
 ### Communication protocols
 - [Communication protocol in Embedded System | Synchronous & Asynchronous communication](https://www.youtube.com/watch?v=bdgCFkc_RXY&list=PLbGlpmZLQWJceYTFXwBjYnUNN2vyVKYNA)
+
+
+### MCV interface
+
+-[Python Tutorial: GUI Calculator with Model View Controller #1](https://www.youtube.com/watch?v=ek47NMFW_mk&list=PLtv1tL_708PBwQAsx4543wc7chepu0qYY&index=1&t=76s&ab_channel=LifeinCode)
