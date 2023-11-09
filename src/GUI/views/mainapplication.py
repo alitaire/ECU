@@ -9,6 +9,8 @@ import sys
 import math
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
+from tkinter.filedialog import askopenfilename
 from src.GUI.views.interface import ViewInterface
 from src.GUI.views.afficheur import Counter
 
@@ -18,7 +20,7 @@ class MainWindow(tk.Tk, ViewInterface):
     classdocs
     '''
 
-    def __init__(self, controller, model, width=1080, height=720):
+    def __init__(self, controller, model, width=1920, height=1080):
         super().__init__()
         self._controller = controller
         self._model = model
@@ -27,23 +29,108 @@ class MainWindow(tk.Tk, ViewInterface):
         self._width = width
         self._height = height
 
-        self.speedView = Counter(self, controller=self._controller, model=self._model, name="Speed")
-        self._model.attach(self.speedView)
-
-        self.tempView = Counter(self, controller=self._controller, model=self._model, name="Temp")
-        self._model.attach(self.tempView)
-
         self._setupView()
 
 
     def _setupView(self):
-        self.speedView.maxUnit = 100
-        self.speedView.unit = "%"
-        self.speedView.pack()
+        self.geometry(f"{self._width}x{self._height}")
+        self.mainlayout = ttk.Frame(self)
+        self.inlayout = ttk.Frame(self.mainlayout)
+        self.outlayout = ttk.Frame(self.mainlayout)
 
-        self.tempView.maxUnit = 150
-        self.tempView.unit = "°C"
-        self.speedView.pack()
+        self.mainlayout.pack(padx=10, pady=10)
+        self.outlayout.grid(column=0, row=0, padx=10, pady=10)
+        self.inlayout.grid(column=1, row=0, padx=10, pady=10)
+
+        self._setup_MenuBar()
+        self._setup_Counters()
+        self._setup_Buttons()
+
+
+    def _setup_MenuBar(self):
+        menu_bar = tk.Menu(self)
+
+        menu_file = tk.Menu(menu_bar, tearoff=0)
+        menu_file.add_command(label="New", command=self.do_something)
+        menu_file.add_command(label="Open", command=self.open_file)
+        menu_file.add_command(label="Save", command=self.do_something)
+        menu_file.add_separator()
+        menu_file.add_command(label="Exit", command=self.quit)
+        menu_bar.add_cascade(label="File", menu=menu_file)
+
+        menu_edit = tk.Menu(menu_bar, tearoff=0)
+        menu_edit.add_command(label="Undo", command=self.do_something)
+        menu_edit.add_separator()
+        menu_edit.add_command(label="Copy", command=self.do_something)
+        menu_edit.add_command(label="Cut", command=self.do_something)
+        menu_edit.add_command(label="Paste", command=self.do_something)
+        menu_bar.add_cascade(label="Edit", menu=menu_edit)
+
+        menu_connect = tk.Menu(menu_bar, tearoff=0)
+        menu_connect.add_command(label="Test", command=self.do_something)
+        menu_bar.add_cascade(label="Connect", menu=menu_connect)
+
+        menu_tune = tk.Menu(menu_bar, tearoff=0)
+        menu_tune.add_command(label="Ohhh Yeaaah", command=self.do_something)
+        menu_bar.add_cascade(label="Tune", menu=menu_tune)
+
+        menu_help = tk.Menu(menu_bar, tearoff=0)
+        menu_help.add_command(label="About", command=self.do_about)
+        menu_bar.add_cascade(label="Help", menu=menu_help)
+
+        self.config(menu=menu_bar)
+
+
+    def _setup_Counters(self):
+        # Affichage Throttle
+        self.throttle = Counter(self.inlayout, controller=self._controller, model=self._model,
+                                name="Throttle", unit="%", max_unit=100)
+        self._model.attach(self.throttle)
+        self.throttle.grid(column=0, row=0, padx=10, pady=10)
+
+        # Affichage Engine Speed
+        self.speed = Counter(self.inlayout, controller=self._controller, model=self._model,
+                             name="Speed", unit="tr/min x 100", max_unit=80)
+        self._model.attach(self.speed)
+        self.speed.grid(column=0, row=1, padx=10, pady=10)
+
+        # Affichage Air intake temperature
+        self.airtemp = Counter(self.inlayout, controller=self._controller, model=self._model,
+                               name="AirTemp", unit="Air T°C", min_unit=-30, max_unit=90)
+        self._model.attach(self.airtemp)
+        self.airtemp.grid(column=1, row=0, padx=10, pady=10)
+
+        # Affichage Coolant temperature
+        self.cooltemp = Counter(self.inlayout, controller=self._controller, model=self._model,
+                                name="CoolTemp", unit="Coolant T°C", min_unit=-30, max_unit=150)
+        self._model.attach(self.cooltemp)
+        self.cooltemp.grid(column=1, row=1, padx=10, pady=10)
+
+        # Ajout d'autres mesures
+
+
+    def _setup_Buttons(self):
+        self.clutch = tk.Button(self.outlayout)
+        self.clutch.config(text="Clutch")
+        self.clutch.grid(column=0, row=0, padx=10, pady=10)
+
+        self.brake = tk.Button(self.outlayout)
+        self.brake.config(text="Brake")
+        self.brake.grid(column=1, row=0, padx=10, pady=10)
+
+    def open_file(self):
+        file = askopenfilename(title="Choose the file to open",
+                               filetypes=[("PNG image", ".png"), ("GIF image", ".gif"), ("All files", ".*")])
+        print(file)
+
+
+    def do_something(self):
+        print("Menu clicked")
+        self._controller.incr()
+
+
+    def do_about(self):
+        messagebox.showinfo("My title", "My message")
 
 
     def update(self):

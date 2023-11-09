@@ -28,3 +28,6 @@ class Controller:
     def on_button_click(self, caption):
         result = self.model.calculate(caption)
         self.view.value_var.set(result)
+
+    def incr(self):
+        self.model.incr("Speed", 10)

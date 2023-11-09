@@ -27,3 +27,7 @@ class Model(ModelInterface):
         self.setState("View", "Calculate")
         self.notify()
         return self.value
+
+    def incr(self, cpt, value):
+        self.setState(cpt, value)
+        self.notify()
