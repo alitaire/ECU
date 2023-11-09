@@ -1,11 +1,23 @@
+'''
+    Created on Nov 05, 2023
+
+    @author: Bastien DELAUNAY
+'''
+
 import tkinter as tk
 from math import cos, sin, radians
+from src.GUI.views.interface import ViewInterface
 
-class MyCanvas(tk.Canvas):
-    def __init__(self, parent, max_unit):
-        super().__init__(parent, width=700, height=700)
-        self.maxUnit = max_unit
-        self.pack()
+class Counter(tk.Canvas, ViewInterface):
+    def __init__(self, parent, model, controller, name):
+        super().__init__(parent, width=350, height=350)
+
+        self._model = model
+        self._controller = controller
+        self._name = name
+
+        self._speed = 100
+        self.maxUnit = 100
         self.draw()
 
     def draw(self):
@@ -62,8 +74,8 @@ class MyCanvas(tk.Canvas):
         self.create_text(centerX - 20, self.winfo_height() * 0.65, text="Unit", fill="white", font=("Helvetica", 20))
 
         # Draw the needle
-        speed = 120  # Change this value to set the speed
-        angle = angle_start + radians(speed / self.maxUnit * 240)
+        # speed = 120  # Change this value to set the speed
+        angle = angle_start + radians(self._speed / self.maxUnit * 240)
         x1 = centerX + cos(angle) * radius * 0.93
         y1 = centerY + sin(angle) * radius * 0.93
         x2 = centerX + cos(angle - 0.4) * radius * 0.1
@@ -75,9 +87,8 @@ class MyCanvas(tk.Canvas):
 
         self.after(1000, self.draw)  # Update the display periodically
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.title("Tkinter Example")
-    app = MyCanvas(root, max_unit=240)
-    app.draw()
-    root.mainloop()
+    def update(self):
+        state = self._model.getState()
+
+        if self._name in state.keys():
+            print(f"Update {self._name}")

@@ -7,31 +7,21 @@
 
 import tkinter as tk
 from tkinter import ttk
+from src.GUI.views.interface import ViewInterface
 
 
-class View(tk.Tk):
+class View(tk.Tk, ViewInterface):
     '''
     classdocs
     '''
 
-    PAD = 10
-
-    MAX_BUTTONS_PER_ROW = 4
-
-    button_captions = [
-        'C', '+/-', '%', '/',
-        7, 8, 9, '*',
-        4, 5, 6, '-',
-        1, 2, 3, '+',
-        0, '.', '='
-        ]
-
-    def __init__(self, controller):
+    def __init__(self, controller, model):
         super().__init__()
 
         self.title('ECU')
 
-        self.controller = controller
+        self._controller = controller
+        self._model = model
 
         self.value_var = tk.StringVar()
 
@@ -68,6 +58,26 @@ class View(tk.Tk):
                 frame.pack()
 
             btn = ttk.Button(frame, text=caption,
-                             command=(lambda button=caption: self.controller.on_button_click(button)))
+                             command=(lambda button=caption: self._controller.on_button_click(button)))
             btn.pack(side='left')
+
+
+    def setup_controller(self):
+        """
+        Abstract method for callback registration w.r.t. concrete controller
+        :return:
+        """
+        pass
+
+
+    def update(self):
+        state = self._model.getState()
+
+        if "View" in state.keys():
+            if "Calculate" in state["View"]:
+                print("Calculate View update")
+            else:
+                print("Update View")
+        else:
+            print("No update for this view")
 

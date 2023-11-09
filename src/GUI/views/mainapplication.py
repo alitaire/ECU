@@ -1,88 +1,54 @@
-import math
+'''
+    Created on Nov 05, 2023
+
+    @author: Bastien DELAUNAY
+'''
+
+
 import sys
-from PySide6.QtGui import QPainter, QColor, QLinearGradient, QPen, QPaintEvent
-from PySide6.QtCore import QPoint, Qt, QPointF, Slot, QThread, Signal
-from PySide6.QtWidgets import QWidget, QApplication, QMainWindow, QHBoxLayout, QVBoxLayout, QLabel
+import math
+import tkinter as tk
+from tkinter import ttk
+from src.GUI.views.interface import ViewInterface
+from src.GUI.views.afficheur import Counter
 
 
-class MainWindow(QMainWindow):
+class MainWindow(tk.Tk, ViewInterface):
+    '''
+    classdocs
+    '''
 
-    def __init__(self):
+    def __init__(self, controller, model, width=1080, height=720):
         super().__init__()
-        self.resize(1024, 760)
+        self._controller = controller
+        self._model = model
 
-        widget = QWidget()
-        hBox = QHBoxLayout()
-        self.speedWidget1 = SpeedWidget()
-        self.speedWidget1.maxUnit = 100
-        self.speedWidget1.unit = "%"
-        self.speedWidget2 = SpeedWidget()
-        self.speedWidget2.maxUnit = 150
-        self.speedWidget2.unit = "°C"
+        self.title('ECU')
+        self._width = width
+        self._height = height
 
-        hBox.addWidget(self.speedWidget1)
-        hBox.addWidget(self.speedWidget2)
+        self.speedView = Counter(self, controller=self._controller, model=self._model, name="Speed")
+        self._model.attach(self.speedView)
 
-        hBox2 = QHBoxLayout()
+        self.tempView = Counter(self, controller=self._controller, model=self._model, name="Temp")
+        self._model.attach(self.tempView)
 
-        vBox = QVBoxLayout()
-        vBox.addLayout(hBox)
-        # vBox.addLayout(hBox2)
-
-        widget.setLayout(vBox)
-        self.setCentralWidget(widget)
+        self._setupView()
 
 
-    def _setupView(self, model, controller, **kwargs):
-        self._width = kwargs["width"]
-        self._height = kwargs["height"]
+    def _setupView(self):
+        self.speedView.maxUnit = 100
+        self.speedView.unit = "%"
+        self.speedView.pack()
 
-        self.__width_offset_lw = kwargs["width_offset_lw"]
-        self.__heigth_offset_lw = kwargs["heigth_offset_lw"]
+        self.tempView.maxUnit = 150
+        self.tempView.unit = "°C"
+        self.speedView.pack()
 
-        self._window = self.winfo_toplevel()
-        self._window.title("ReliaVision")
-
-        self._window.columnconfigure(2, weight=1)
-        self._window.rowconfigure(2, weight=1)
-        self.setup_tabs()
-
-        self._layout_viewer = None
-        self._window.resizable(False, False)
-        # self._window.resizable(True, True)
-
-        self._window.geometry(
-            "{}x{}".format(self._width, self._height + kwargs["extra_height_for_logo"])
-        )
-
-        self.create_logo()
-
-    def setup_controller(self):
-        self._controller.add_view(MenuBar, self)
-        self._controller.add_view(Plot, self._tabs["bar_chart"])
-        self._controller.add_view(Trajectories, self._tabs["trajectories"])
-        self._controller.add_view(Schematic, self._tabs["schematic"])
-
-    def keyPressEvent(self, event):
-        if event.key() == Qt.Key_Plus:
-            self.speedWidget.increment_speed()
-        elif event.key() == Qt.Key_Minus:
-            self.speedWidget.decrement_speed()
 
     def update(self):
         state = self._model.getState()
 
-        if "layoutviewer" in list(state.keys()):
-            if not common.layout_empty(state["layoutviewer"]):
-                if self._layout_viewer is not None:
-                    self._layout_viewer.destroy()
+        if "MainWindow" in state.keys():
+            print("Update MainWindow")
 
-                self._layout_viewer = LayoutViewer(
-                    self._tabs["layout"],
-                    cells=state["layoutviewer"]["cells"],
-                    color=state["layoutviewer"]["colors"],
-                    hidden_types=state["layoutviewer"]["hidden_types"],
-                    pattern=state["layoutviewer"]["patterns"],
-                    width=self._width - self.__width_offset_lw,
-                    height=self._height - self.__heigth_offset_lw,
-                )

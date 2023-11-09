@@ -5,12 +5,16 @@
 '''
 
 
-class Model:
+from src.GUI.models.interface import ModelInterface
+
+
+class Model(ModelInterface):
     '''
     classdocs
     '''
 
     def __init__(self):
+        super().__init__()
         self.value = ''
 
 
@@ -20,5 +24,6 @@ class Model:
             self.value = ''
         elif isinstance(caption, int):
             self.value += str(caption)
-
+        self.setState("View", "Calculate")
+        self.notify()
         return self.value

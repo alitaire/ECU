@@ -6,7 +6,7 @@
 
 
 from src.GUI.models.model import Model
-from src.GUI.views.view import View
+from src.GUI.views.mainapplication import MainWindow
 
 
 class Controller:
@@ -16,12 +16,14 @@ class Controller:
 
     def __init__(self):
         self.model = Model()
-        self.view = View(self)
+        self.view = MainWindow(controller=self, model=self.model)
+
+        self.model.attach(self.view)
 
 
     def main(self):
         print("In main controller")
-        self.view.main()
+        self.view.mainloop()
 
     def on_button_click(self, caption):
         result = self.model.calculate(caption)

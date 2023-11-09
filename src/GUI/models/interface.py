@@ -2,18 +2,23 @@ from abc import ABC, abstractmethod
 
 
 class ModelInterface(ABC):
-    @abstractmethod
-    def notify(self) -> None:
-        """
-        sends update signal to registered views
-        :return:
-        """
-        pass
+    def __init__(self):
+        self._observers = []
+        self.__state = {}
 
-    @abstractmethod
-    def getState(self) -> dict:
-        """
-        This function is not part of the Observer model but is very handy exchanging data with view objects only on the interface level
-        :return:
-        """
-        pass
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self):
+        for observer in self._observers:
+            observer.update()
+
+    def getState(self):
+        return  self.__state
+
+
+    def setState(self, state, value):
+        self.__state[state] = value
