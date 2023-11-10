@@ -13,6 +13,7 @@ from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
 from src.GUI.views.interface import ViewInterface
 from src.GUI.views.afficheur import Counter
+from src.GUI.views.communication import Communication
 
 
 class MainWindow(tk.Tk, ViewInterface):
@@ -20,7 +21,7 @@ class MainWindow(tk.Tk, ViewInterface):
     classdocs
     '''
 
-    def __init__(self, controller, model, width=1920, height=1080):
+    def __init__(self, controller, model, width=1450, height=900):
         super().__init__()
         self._controller = controller
         self._model = model
@@ -34,9 +35,9 @@ class MainWindow(tk.Tk, ViewInterface):
 
     def _setupView(self):
         self.geometry(f"{self._width}x{self._height}")
-        self.mainlayout = ttk.Frame(self)
-        self.inlayout = ttk.Frame(self.mainlayout)
-        self.outlayout = ttk.Frame(self.mainlayout)
+        self.mainlayout = ttk.Frame(self, relief="sunken")
+        self.inlayout = ttk.Frame(self.mainlayout, relief="sunken")
+        self.outlayout = ttk.Frame(self.mainlayout, relief="sunken")
 
         self.mainlayout.pack(padx=10, pady=10)
         self.outlayout.grid(column=0, row=0, padx=10, pady=10)
@@ -67,7 +68,7 @@ class MainWindow(tk.Tk, ViewInterface):
         menu_bar.add_cascade(label="Edit", menu=menu_edit)
 
         menu_connect = tk.Menu(menu_bar, tearoff=0)
-        menu_connect.add_command(label="Test", command=self.do_something)
+        menu_connect.add_command(label="Test", command=self.open_com)
         menu_bar.add_cascade(label="Connect", menu=menu_connect)
 
         menu_tune = tk.Menu(menu_bar, tearoff=0)
@@ -110,6 +111,11 @@ class MainWindow(tk.Tk, ViewInterface):
 
 
     def _setup_Buttons(self):
+        for i in range(0, 9):
+            tmp_btn = tk.Button(self.outlayout, height=10, width=20)
+            tmp_btn.config(text=f"Btn{i}")
+            tmp_btn.grid(column=i%3, row=i//3, padx=10, pady=20)
+        '''
         self.clutch = tk.Button(self.outlayout)
         self.clutch.config(text="Clutch")
         self.clutch.grid(column=0, row=0, padx=10, pady=10)
@@ -117,12 +123,17 @@ class MainWindow(tk.Tk, ViewInterface):
         self.brake = tk.Button(self.outlayout)
         self.brake.config(text="Brake")
         self.brake.grid(column=1, row=0, padx=10, pady=10)
+        '''
 
     def open_file(self):
         file = askopenfilename(title="Choose the file to open",
                                filetypes=[("PNG image", ".png"), ("GIF image", ".gif"), ("All files", ".*")])
         print(file)
 
+
+    def open_com(self):
+        com = Communication(controller=self._controller, model=self._model)
+        com.mainloop()
 
     def do_something(self):
         print("Menu clicked")
