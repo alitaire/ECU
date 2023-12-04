@@ -7,7 +7,7 @@
 
 import tkinter as tk
 from tkinter import ttk
-from src.GUI.views.interface import ViewInterface
+from views import ViewInterface
 
 
 class View(tk.Tk, ViewInterface):

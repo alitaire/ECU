@@ -11,9 +11,9 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
-from src.GUI.views.interface import ViewInterface
-from src.GUI.views.afficheur import Counter
-from src.GUI.views.communication import Communication
+from views import ViewInterface
+from views import Counter
+from views import Communication
 
 
 class MainWindow(tk.Tk, ViewInterface):
@@ -21,7 +21,7 @@ class MainWindow(tk.Tk, ViewInterface):
     classdocs
     '''
 
-    def __init__(self, controller, model, width=1450, height=900):
+    def __init__(self, controller, model, width=1500, height=900):
         super().__init__()
         self._controller = controller
         self._model = model

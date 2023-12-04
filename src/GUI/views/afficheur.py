@@ -6,7 +6,7 @@
 
 import tkinter as tk
 from math import cos, sin, radians
-from src.GUI.views.interface import ViewInterface
+from views import ViewInterface
 
 class Counter(tk.Canvas, ViewInterface):
     def __init__(self, parent, model, controller, name, unit="Null", min_unit=0, max_unit=100):

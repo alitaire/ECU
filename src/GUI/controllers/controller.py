@@ -4,9 +4,8 @@
     @author: Bastien DELAUNAY
 '''
 
-
-from src.GUI.models.model import Model
-from src.GUI.views.mainapplication import MainWindow
+from models import Model
+from views import MainWindow
 
 
 class Controller:

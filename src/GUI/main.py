@@ -5,8 +5,7 @@
 '''
 
 
-from src.GUI.controllers.controller import Controller
-
+from controllers import Controller
 
 if __name__ == '__main__':
     controller = Controller()

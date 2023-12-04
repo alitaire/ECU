@@ -5,7 +5,7 @@
 '''
 
 
-from src.GUI.models.interface import ModelInterface
+from models import ModelInterface
 
 
 class Model(ModelInterface):
