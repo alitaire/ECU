@@ -7,13 +7,16 @@
 
 import sys
 import math
+from PIL import Image, ImageTk
 import tkinter as tk
 from tkinter import ttk
+from tkinter import PhotoImage
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
 from views import ViewInterface
 from views import Counter
 from views import Communication
+from views import Voyant
 
 
 class MainWindow(tk.Tk, ViewInterface):
@@ -43,10 +46,11 @@ class MainWindow(tk.Tk, ViewInterface):
         self.outlayout.grid(column=0, row=0, padx=10, pady=10)
         self.inlayout.grid(column=1, row=0, padx=10, pady=10)
 
+        self._setup_injectors()
         self._setup_MenuBar()
         self._setup_Counters()
-        self._setup_Buttons()
 
+        self._setup_ignite_coils()
 
     def _setup_MenuBar(self):
         menu_bar = tk.Menu(self)
@@ -59,13 +63,9 @@ class MainWindow(tk.Tk, ViewInterface):
         menu_file.add_command(label="Exit", command=self.quit)
         menu_bar.add_cascade(label="File", menu=menu_file)
 
-        menu_edit = tk.Menu(menu_bar, tearoff=0)
-        menu_edit.add_command(label="Undo", command=self.do_something)
-        menu_edit.add_separator()
-        menu_edit.add_command(label="Copy", command=self.do_something)
-        menu_edit.add_command(label="Cut", command=self.do_something)
-        menu_edit.add_command(label="Paste", command=self.do_something)
-        menu_bar.add_cascade(label="Edit", menu=menu_edit)
+        menu_settings = tk.Menu(menu_bar, tearoff=0)
+        menu_settings.add_command(label="TODO", command=self.do_something)
+        menu_bar.add_cascade(label="Settings", menu=menu_settings)
 
         menu_connect = tk.Menu(menu_bar, tearoff=0)
         menu_connect.add_command(label="Test", command=self.open_com)
@@ -110,20 +110,39 @@ class MainWindow(tk.Tk, ViewInterface):
         # Ajout d'autres mesures
 
 
-    def _setup_Buttons(self):
-        for i in range(0, 9):
-            tmp_btn = tk.Button(self.outlayout, height=10, width=20)
-            tmp_btn.config(text=f"Btn{i}")
-            tmp_btn.grid(column=i%3, row=i//3, padx=10, pady=20)
-        '''
-        self.clutch = tk.Button(self.outlayout)
-        self.clutch.config(text="Clutch")
-        self.clutch.grid(column=0, row=0, padx=10, pady=10)
+    def _setup_injectors(self):
 
-        self.brake = tk.Button(self.outlayout)
-        self.brake.config(text="Brake")
-        self.brake.grid(column=1, row=0, padx=10, pady=10)
-        '''
+        # Chargement de l'image
+        image_pillow = Image.open("img/injector.png")
+        image_pillow = image_pillow.resize((70, 150), Image.ANTIALIAS)
+        self.inj_img = ImageTk.PhotoImage(image_pillow)
+
+        # Injecteur 1
+        inj1_text = tk.Label(self.outlayout, text="Injecteur 1")
+        inj1_img = tk.Label(self.outlayout, image=self.inj_img)
+        inj1_voy = Voyant(self.outlayout, self._model, self._controller, "Injector-1", size=35)
+
+
+        inj1_text.pack(padx=5, pady=5)
+        inj1_img.pack(padx=5, pady=5)
+        inj1_voy.pack(padx=5, pady=5)
+
+
+    def _setup_ignite_coils(self):
+        # Chargement de l'image
+        image_pillow = Image.open("img/ignition_coil.png")
+        image_pillow = image_pillow.resize((70, 150), Image.ANTIALIAS)
+        self.ignite_img = ImageTk.PhotoImage(image_pillow)
+
+        # Injecteur 1
+        ignite1_text = tk.Label(self.outlayout, text="Ignition 1")
+        ignite1_img = tk.Label(self.outlayout, image=self.ignite_img)
+        ignite1_voy = Voyant(self.outlayout, self._model, self._controller, "Injector-1", size=35)
+
+        ignite1_text.pack(padx=5, pady=5)
+        ignite1_img.pack(padx=5, pady=5)
+        ignite1_voy.pack(padx=5, pady=5)
+
 
     def open_file(self):
         file = askopenfilename(title="Choose the file to open",
