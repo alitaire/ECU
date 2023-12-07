@@ -31,3 +31,7 @@ class Model(ModelInterface):
     def incr(self, cpt, value):
         self.setState(cpt, value)
         self.notify()
+
+    def leds_blink(self):
+        self.setState("Injector-1", "blink")
+        self.notify()

@@ -42,7 +42,7 @@ class Voyant(tk.Canvas, ViewInterface):
         else:
             self.color = self.blink_color
 
-        self.draw_led()
+        self.draw()
         self.isblinked = not self.isblinked
 
 

@@ -28,5 +28,11 @@ class Controller:
         result = self.model.calculate(caption)
         self.view.value_var.set(result)
 
+    def leds_blink(self):
+        self.model.leds_blink()
+
     def incr(self):
         self.model.incr("Speed", 10)
+
+    def callbacks(args):
+        pass

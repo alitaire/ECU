@@ -24,7 +24,7 @@ class MainWindow(tk.Tk, ViewInterface):
     classdocs
     '''
 
-    def __init__(self, controller, model, width=1500, height=900):
+    def __init__(self, controller, model, width=1400, height=900):
         super().__init__()
         self._controller = controller
         self._model = model
@@ -64,7 +64,7 @@ class MainWindow(tk.Tk, ViewInterface):
         menu_bar.add_cascade(label="File", menu=menu_file)
 
         menu_settings = tk.Menu(menu_bar, tearoff=0)
-        menu_settings.add_command(label="TODO", command=self.do_something)
+        menu_settings.add_command(label="TODO", command=self._controller.leds_blink)
         menu_bar.add_cascade(label="Settings", menu=menu_settings)
 
         menu_connect = tk.Menu(menu_bar, tearoff=0)
@@ -112,20 +112,25 @@ class MainWindow(tk.Tk, ViewInterface):
 
     def _setup_injectors(self):
 
+        #self._injectors_voy = []
         # Chargement de l'image
         image_pillow = Image.open("img/injector.png")
         image_pillow = image_pillow.resize((70, 150), Image.ANTIALIAS)
         self.inj_img = ImageTk.PhotoImage(image_pillow)
 
-        # Injecteur 1
-        inj1_text = tk.Label(self.outlayout, text="Injecteur 1")
-        inj1_img = tk.Label(self.outlayout, image=self.inj_img)
-        inj1_voy = Voyant(self.outlayout, self._model, self._controller, "Injector-1", size=35)
+        # Injecteurs
+        for i in range(0,4):
+            inj_frame = ttk.Frame(self.outlayout, relief="sunken")
+            inj_text = tk.Label(inj_frame, text=f"Injecteur {i+1}")
+            inj_img = tk.Label(inj_frame, image=self.inj_img)
+            inj_voy = Voyant(inj_frame, self._model, self._controller, f"Injector-{i+1}", size=35)
+            #self._injectors_voy.append(inj_voy)
+            self._model.attach(inj_voy)
 
-
-        inj1_text.pack(padx=5, pady=5)
-        inj1_img.pack(padx=5, pady=5)
-        inj1_voy.pack(padx=5, pady=5)
+            inj_text.pack(padx=5, pady=5)
+            inj_img.pack(padx=5, pady=5)
+            inj_voy.pack(padx=5, pady=5)
+            inj_frame.grid(column=i, row=0, padx=20, pady=50)
 
 
     def _setup_ignite_coils(self):
@@ -134,14 +139,18 @@ class MainWindow(tk.Tk, ViewInterface):
         image_pillow = image_pillow.resize((70, 150), Image.ANTIALIAS)
         self.ignite_img = ImageTk.PhotoImage(image_pillow)
 
-        # Injecteur 1
-        ignite1_text = tk.Label(self.outlayout, text="Ignition 1")
-        ignite1_img = tk.Label(self.outlayout, image=self.ignite_img)
-        ignite1_voy = Voyant(self.outlayout, self._model, self._controller, "Injector-1", size=35)
+        # Bobine d'allumage
+        for i in range(0,4):
+            ignite_frame = ttk.Frame(self.outlayout, relief="sunken")
+            ignite_text = tk.Label(ignite_frame, text=f"Ignition {i+1}")
+            ignite_img = tk.Label(ignite_frame, image=self.ignite_img)
+            ignite_voy = Voyant(ignite_frame, self._model, self._controller, f"Ignition-{i+1}", size=35)
 
-        ignite1_text.pack(padx=5, pady=5)
-        ignite1_img.pack(padx=5, pady=5)
-        ignite1_voy.pack(padx=5, pady=5)
+            ignite_text.pack(padx=5, pady=5)
+            ignite_img.pack(padx=5, pady=5)
+            ignite_voy.pack(padx=5, pady=5)
+            ignite_frame.grid(column=i, row=1, padx=20, pady=50)
+
 
 
     def open_file(self):
