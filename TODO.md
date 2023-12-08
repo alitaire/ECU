@@ -7,6 +7,7 @@
   - Communication reception
   - Communication decode
   - Carto moteur avec fichier sauvegarde ?
+  - Ajout label de status de connection avec stm32
 - STM32
   - Communication
   - Test comm
