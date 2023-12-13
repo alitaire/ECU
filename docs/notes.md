@@ -40,3 +40,31 @@ Knocking and pre-ignition arise due to excessive temperatures within the cylinde
 To mitigate these issues, utilizing higher octane fuel is a straightforward approach. Higher octane fuel offers greater resistance to knocking, reducing the chances of spontaneous combustion within the combustion chamber. Alternatively, maintaining an appropriate compression ratio for the engine can also be effective. The compression ratio is the ratio of the combustion chamber volume at BDC to that at TDC (BDC:TDC = compression ratio). The introduction of forced induction, such as turbochargers or other compressors, can elevate air temperatures due to compression, increasing the likelihood of knocks. Some turbocharged vehicles incorporate intercoolers to cool the incoming air, enhancing engine performance and diminishing knock potential. Lower compression ratios contribute to reduced air temperatures, facilitating the compatibility of a turbocharger.
 
 Another strategy involves implementing a knock sensor, acting as a microphone to detect knocking. Following detection, the Engine Control Unit (ECU) analyzes specific frequencies, subsequently retarding the ignition timing of the spark plug in the subsequent cycle. The knock sensor, coupled with crankshaft angle data, determines the engine's pressure peak, inducing an ignition timing delay as a countermeasure.
+
+## GUI FUTURE
+
+Description d'une interface graphique (GUI) de surveillance moteur en cours de développement :
+
+1. **Interface Intuitive :** Concevoir une interface conviviale et intuitive pour faciliter la compréhension des données du moteur, permettant aux utilisateurs de naviguer aisément.
+
+2. **Visualisation Graphique :** Implémenter des représentations visuelles, telles que des graphiques et des tableaux dynamiques, pour afficher de manière claire les paramètres moteur, les performances et les tendances.
+
+3. **Personnalisation des Widgets :** Offrir la possibilité de personnaliser les widgets et les panneaux d'affichage, permettant aux utilisateurs de configurer l'interface selon leurs préférences.
+
+4. **Alertes en Temps Réel :** Intégrer des fonctionnalités d'alerte en temps réel pour informer les utilisateurs des conditions anormales ou des alarmes liées au fonctionnement du moteur.
+
+5. **Historique des Données :** Mettre en place un système d'enregistrement des données pour permettre aux utilisateurs de consulter l'historique des performances du moteur et d'analyser les tendances passées.
+
+6. **Surveillance des Capteurs :** Intégrer une fonction de surveillance des capteurs en temps réel, avec des indicateurs visuels pour signaler les variations de paramètres importants.
+
+7. **Commandes à Distance :** Inclure des fonctionnalités permettant aux utilisateurs d'envoyer des commandes à distance pour ajuster certains paramètres du moteur, favorisant une gestion proactive.
+
+8. **Compatibilité Multi-Plateforme :** Assurer la compatibilité avec différentes plates-formes, notamment PC, tablettes et smartphones, pour permettre un accès flexible à l'interface de monitoring.
+
+9. **Sécurité des Données :** Mettre en œuvre des mesures de sécurité robustes pour protéger les données sensibles du moteur et assurer la confidentialité des informations.
+
+10. **Documentation Intégrée :** Intégrer une documentation interactive directement dans l'interface, fournissant des informations contextuelles sur les paramètres et les fonctions disponibles.
+
+11. **Analyse en Temps Réel :** Intégrer des outils d'analyse en temps réel pour permettre aux utilisateurs de prendre des décisions informées en fonction des données du moteur en évolution constante.
+
+12. **Compatibilité avec Systèmes d'Émulation :** Assurer la compatibilité avec des systèmes d'émulation pour faciliter le développement, les tests et la simulation sans nécessiter une connexion physique au moteur.
