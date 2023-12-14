@@ -11,5 +11,7 @@
 - STM32
   - Communication
   - Test comm
+- Calculs utilisation temps stm32 après opérations de gestion moteur (fréquence suffisante ?)
+  - Compatible avec communication pour monitoring ?
 
 # Alexandre
