@@ -19,6 +19,8 @@ class ModelInterface(ABC):
     def getState(self):
         return  self.__state
 
-
     def setState(self, state, value):
         self.__state[state] = value
+
+    def delState(self, state):
+        self.__state.pop(state)

@@ -177,4 +177,6 @@ class MainWindow(tk.Tk, ViewInterface):
 
         if "MainWindow" in state.keys():
             print("Update MainWindow")
+        if "Test" in state.keys():
+            print(state["Test"])
 

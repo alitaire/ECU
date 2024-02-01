@@ -35,3 +35,8 @@ class Model(ModelInterface):
     def leds_blink(self):
         self.setState("Injector-1", "blink")
         self.notify()
+
+    def update_label(self, text):
+        self.setState("Test", text)
+        self.notify()
+        self.delState("Test")

@@ -34,5 +34,8 @@ class Controller:
     def incr(self):
         self.model.incr("Speed", 10)
 
+    def update_label(self, text):
+        self.model.update_label(text)
+
     def callbacks(args):
         pass
