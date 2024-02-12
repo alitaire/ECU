@@ -5,6 +5,10 @@
 - Alexandre MINGANT
 - Bastien DELAUNAY
 
+## Essais
+
+- Utiliser carte Nucleo pour simuler valeurs analogiques + page interface PC parametrage simulation
+- Lecture données temps-réel honda pour utiliser comme valeurs d'essai
 
 ## Codes
 
@@ -32,6 +36,17 @@
 - Inits :
   - Initilisation des capteurs
   - ...
+
+- Sensors :
+  - Dans le main, Utilisation d'un compteur pour effectuer les lectures à une certaines fréquence
+  - Fonctions de lecture des capteurs
+  - ...
+
+- Decoders : Permet de décoder les valeurs de certains capteurs
+  - getRPM
+  - getCrankAngle
+  - ...
+
 
 - Comms : Communication avec PC et commandes (voir comms_legacy.h/.cpp de Speeduino)
   - Machine d'état avec switch sur la commande reçu du PC

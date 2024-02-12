@@ -20,7 +20,7 @@ if __name__ == '__main__':
         port = 'COM3'
     elif system_info == 'Linux':
         print("Le système d'exploitation est Linux.")
-        port = '/dev/ttyUSB0'
+        port = '/dev/ttyACM0'
     else:
         print(f"Le système d'exploitation est {system_info}.")
 
