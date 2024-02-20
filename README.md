@@ -34,8 +34,24 @@
   - ...
   
 - Inits :
-  - Initilisation des capteurs
-  - ...
+  - Marquer l'initialisation comme non réalisé (utiliser un flag)
+  - Initialiser et définir les tailles des tables 3D
+  - Charger la configuration depuis l'EEPROM
+  - Initialiser la carte
+  - Initialiser les timers (fct initialiseTimers() ?)
+  - Charger les tables de calibration depuis l'EEPROM
+  - Effectuer le mapping des broches
+  - Arrêter toute charge de bobine et fermer les injecteurs
+  - Initialiser les ordonnanceurs, Idle, Fan, auxPWM, Corrections, conversions AD, Entrées/Sorties Programmables
+  - Initialiser le baro (pression ambiante) en lisant MAP (avant le démarrage du moteur)
+  - Initialiser les déclencheurs (fct initialiseTriggers() ?)
+  - Effectuer les initialisations pour 4 cylindres
+  - Effectuer la configuration basée sur le mode d'injection et d'allumage
+    - Affecter les fonctions d'ouverture/fermeture des injecteurs et de début/fin de charge de la bobine à leurs variables globales dédiées
+  - Effectuer l'amorçage de la pression de carburant en activant la pompe à carburant
+  - Lire les capteurs CLT et TPS pour calculer correctement les largeurs d'impulsion de démarrage
+  - Marquer l'initialisation comme terminée (utiliser un flag)
+
 
 - Sensors :
   - Dans le main, Utilisation d'un compteur pour effectuer les lectures à une certaines fréquence
@@ -55,3 +71,4 @@
 
 - Log : Archivage des activitées (Optionel)
   - ...
+
