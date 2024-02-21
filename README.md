@@ -1,4 +1,4 @@
-# STM32 ENGINE CONTROL UNIT (ECU)
+# Speed Tune Motor ECU
 
 ## Authors
 
