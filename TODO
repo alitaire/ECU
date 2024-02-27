@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Essais
 
 - Utiliser carte Nucleo pour simuler valeurs analogiques + page interface PC parametrage simulation
@@ -65,3 +66,25 @@
 - Log : Archivage des activitées (Optionel)
   - ...
 
+=======
+Bastien
+
+- globals.h/.c
+  - Définir et Ajouter structure statuts
+  - Ajouter macros
+  - Instancier variables globales
+- comms.h/.c
+  - Fonction pour standardiser l'envoi de données sur l'usb/uart
+  - Fonction pour lire les données recu
+  - Switch avec code pour envoi de données différés
+  - Code d'envoi des données "temps réel"
+  - Ajout d'un code équivalent ping pour vérifier comm à intervale de temps régul
+- main.h/.c
+  - Ajouter une routine de vérif comm et appel de fonction si comm voulu
+- GUI
+  - Modifier l'init de la comm via le menu comm
+  - Ajout d'un voyant de status de comm
+  - Ajout envoi de requete regulier
+  - Modifier onglet config comm pour entrer port de comm et demarrer/arreter une connection
+  
+>>>>>>> 1a74440df701c3b31df2359c1aa2c57afe0ba63c

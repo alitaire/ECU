@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # SPEED TUNE MOTOR ECU
+=======
+# Speed Tune Motor ECU
+>>>>>>> 1a74440df701c3b31df2359c1aa2c57afe0ba63c
 
 ![logo](img/logo.png)
 

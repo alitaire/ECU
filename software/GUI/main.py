@@ -24,7 +24,7 @@ if __name__ == '__main__':
     else:
         print(f"Le système d'exploitation est {system_info}.")
 
-    uart_listener = UartListener(controller, port, "115200")
-    uart_listener.start()
+    #uart_listener = UartListener(controller, port, "115200")
+    #uart_listener.start()
 
     controller.main()

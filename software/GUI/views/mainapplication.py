@@ -44,13 +44,13 @@ class MainWindow(tk.Tk, ViewInterface):
 
         self.mainlayout.pack(padx=10, pady=10)
         self.outlayout.grid(column=0, row=0, padx=10, pady=10)
-        self.inlayout.grid(column=1, row=0, padx=10, pady=10)
+        self.inlayout.grid(column=1, row=0, padx=10)
 
         self._setup_injectors()
         self._setup_MenuBar()
         self._setup_Counters()
-
         self._setup_ignite_coils()
+
 
     def _setup_MenuBar(self):
         menu_bar = tk.Menu(self)
