@@ -9,6 +9,7 @@
 - [Fabriquer son calculateur programmable de A à Z](https://www.youtube.com/watch?v=umEPQX0LCZw&t=2s)
 
 ### Motors
+- [4 stroke engine animation ](https://www.youtube.com/watch?v=VP13eYbCtAc)
 - [Types of Combustion Chamber for CI Engine](https://www.youtube.com/watch?v=mvDkWnownI8)
 - [Types of Combustion Chamber for SI Engine](https://www.youtube.com/watch?v=GR0oI5sDCww)
 - [Battery And Coil Ignition System](https://www.youtube.com/watch?v=8iBLAAJR298)
@@ -32,4 +33,4 @@
 
 ### MCV interface
 
--[Python Tutorial: GUI Calculator with Model View Controller #1](https://www.youtube.com/watch?v=ek47NMFW_mk&list=PLtv1tL_708PBwQAsx4543wc7chepu0qYY&index=1&t=76s&ab_channel=LifeinCode)
+- [Python Tutorial: GUI Calculator with Model View Controller #1](https://www.youtube.com/watch?v=ek47NMFW_mk&list=PLtv1tL_708PBwQAsx4543wc7chepu0qYY&index=1&t=76s&ab_channel=LifeinCode)
