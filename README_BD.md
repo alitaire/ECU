@@ -1,6 +1,10 @@
+<center>
+
 # SPEED TUNE MOTOR ECU
 
 ![logo](img/logo.png)
+
+</center>
 
 ## Auteurs
 
@@ -57,7 +61,7 @@ Et les 2 actionneurs :
 
 - **Injecteur de carburant** : Vaporise le carburant dans la chambre de combustion, contrôlé par le calculateur moteur pour fournir la bonne quantité de carburant nécessaire à une combustion efficace.
 
-![schema](/img/sensors_scheme.jpeg)
+![schema](/img/sensors_scheme.png)
 
 ### Objectifs du projet
 
@@ -71,15 +75,7 @@ Les objectifs de ce projet sont divisés en deux parties :
   - Élaborer un programme pour l'ECU permettant d'acquérir des données et de gérer les actionneurs basé sur l'architecture STM32.
   - Développer un programme de surveillance des données sur un PC connecté en temps réel à l'ECU, permettant de collecter les données pertinentes et de les analyser (avec la capacité future de modifier les données du calculateur).
 
-### Structure du projet
-
-Le projet est structuré en plusierus répertoire:
-
-- datas:
-- docs:
-- hardware:
-- img:
-- software:
+![schema projet](img/schema_projet.png)
 
 ## Partie électronique
 
@@ -101,7 +97,45 @@ intro
 
 ### Monitoring des données sur PC
 
+Afin de pouvoir lire les données en temps réel, analyse d'une app existance (TunerStudio) utilisé pour speeduino ou encore Megasquirt, après analyse de la doc, conclusion que cela prendrais trop de temps dans les 6 mois pour son utilisation, a la place conception d'une petite application PC en python car rapide à mettre en place et compétence acquise ulérieure, utilisation d'une structure MCV (Modele Controller View) et communication en UART avec l'ECU
+
+![schema MCV]()
+Description d'un MCV
+
+![vue application]()
+Description des fonctionnalité de l'application
+
+Retour sur idée de base, utilisation de TunerStudio carapplication maintenue dans le temps et un gros dev derrière, prendrais plus de temps pour dev une appli équivalente (aussi complète).
+
 ### Gestion moteur sur ECU
+
+Analyse d'un projet similaire (speeduino)
+
+Suite à cette analyse, une structure choisi:
+- Main : Determiner les besoins du moteur et Gérer l'allumage et l'injection
+- Globals : Définition des varibales/fonctions utiles pour tous les modules
+- Inits : Initilise les données et modules du calculateur 
+- Sensors : Gestion de l'acquisition des données des capteurs
+- Decoders : Décodage des valeurs de certains capteurs
+- Comms : Gestion de la communication entre la carte et l'extérieur
+- Log : Archivage des activitées (Optionel)
+
+Pour plus de détails, consulter [structure_code.md](/docs/autres/structure_code.md)
+
+#### Main
+Détails
+#### Globals
+Détails
+#### Inits
+Détails
+#### Sensors
+Détails
+#### Decoders
+Détails
+#### Comms
+Détails
+#### Logs
+Détails
 
 ## Etat du projet et suite
 
