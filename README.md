@@ -107,6 +107,7 @@ Le MAX9924 est équipé d'un seuil de crête adaptable, ce qui signifie qu'il pe
 
 Lorsqu'un signal dépasse le seuil défini, le MAX9924 génère une sortie logique qui peut être utilisée pour déclencher des actions dans le système.
 
+ ![capteur_hall](img/capteur_hall.png)
 
 Ensemble Capteurs (Huile, Pression Essence, O2, accélérateur,liquide de refroidissement, température admission d’air, Capteur Barométrique et capteur MAP)
 
@@ -115,10 +116,14 @@ Les capteurs comprennent ceux de pression d'huile, de pression de carburant, d'o
 
 ### Gestion de l'alimentation 
 
+ ![alimentation](img/alimentation.png)
+
 La gestion de l'alimentation de votre ECU implique un système d'alimentation double. Elle utilise une alimentation de 5V avec une sortie maximale de 3A, fournissant une puissance suffisante pour le fonctionnement global du système. De plus, une alimentation de 3,3V est utilisée, avec un courant maximal de 0,8A, spécifiquement adaptée au microcontrôleur STM32. Cette configuration à double tension assure une distribution d'énergie fiable et efficace, répondant aux exigences spécifiques à la fois de l'ECU dans son ensemble et du microcontrôleur STM32 qui le compose.
 
 
 ### Ensemble capteur sonde lambda 
+
+ ![lambda](img/lambda.png)
 
 La sonde lambda génère une tension analogique qui est proportionnelle à la concentration d'oxygène dans les gaz d'échappement. Le CY8C24223A est un convertisseur analogique-numérique (CAN) 12 bits qui peut être utilisé pour interfacer une sonde lambda. Le CAN convertit cette tension en un nombre numérique qui peut être utilisé par un microcontrôleur pour calculer le rapport air-carburant.
 
