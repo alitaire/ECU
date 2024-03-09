@@ -116,7 +116,7 @@ Les capteurs comprennent ceux de pression d'huile, de pression de carburant, d'o
 
 ### Gestion de l'alimentation 
 
- ![alimentation](img/alimentation.png width="50%" height="50%")
+ ![alimentation](img/alimentation.pngwidth="200")
 
 La gestion de l'alimentation de votre ECU implique un système d'alimentation double. Elle utilise une alimentation de 5V avec une sortie maximale de 3A, fournissant une puissance suffisante pour le fonctionnement global du système. De plus, une alimentation de 3,3V est utilisée, avec un courant maximal de 0,8A, spécifiquement adaptée au microcontrôleur STM32. Cette configuration à double tension assure une distribution d'énergie fiable et efficace, répondant aux exigences spécifiques à la fois de l'ECU dans son ensemble et du microcontrôleur STM32 qui le compose.
 
