@@ -114,10 +114,9 @@ Lorsqu'un signal dépasse le seuil défini, le MAX9924 génère une sortie logiq
 
 Les capteurs comprennent ceux de pression d'huile, de pression de carburant, d'oxygène, d'accélérateur, de liquide de refroidissement, de température d'admission d'air, de pression barométrique et de pression absolue du collecteur d'admission (MAP). Tous ces capteurs sont connectés aux entrées analogiques de notre microcontrôleur. En amont du microcontrôleur, des filtres passe-bas RC sont utilisés pour éliminer les fréquences parasites des signaux des capteurs. De plus, des ponts diviseurs sont placés en amont du microcontrôleur pour réduire la tension de 5V à 3,3V, assurant ainsi une acquisition précise et sécurisée des données pour le microcontrôleur STM32.
 
+ <img src="img/ensemble_capteur.png" alt="ensemble_capteur" style="width:500px;height:auto;">
 
 ### Gestion de l'alimentation 
-
-
 
 
 La gestion de l'alimentation de votre ECU implique un système d'alimentation double. Elle utilise une alimentation de 5V avec une sortie maximale de 3A, fournissant une puissance suffisante pour le fonctionnement global du système. De plus, une alimentation de 3,3V est utilisée, avec un courant maximal de 0,8A, spécifiquement adaptée au microcontrôleur STM32. Cette configuration à double tension assure une distribution d'énergie fiable et efficace, répondant aux exigences spécifiques à la fois de l'ECU dans son ensemble et du microcontrôleur STM32 qui le compose.
@@ -125,9 +124,6 @@ La gestion de l'alimentation de votre ECU implique un système d'alimentation do
   <img src="img/alimentation.png" alt="alimentation" style="width:500px;height:auto;">
 
 ### Ensemble capteur sonde lambda 
-
-
-
 
 
 La sonde lambda génère une tension analogique qui est proportionnelle à la concentration d'oxygène dans les gaz d'échappement. Le CY8C24223A est un convertisseur analogique-numérique (CAN) 12 bits qui peut être utilisé pour interfacer une sonde lambda. Le CAN convertit cette tension en un nombre numérique qui peut être utilisé par un microcontrôleur pour calculer le rapport air-carburant.
@@ -139,6 +135,8 @@ La sonde lambda génère une tension analogique qui est proportionnelle à la co
 Le CAN bus (Controller Area Network) est un réseau de communication série utilisé dans les applications automobiles et industrielles. Il permet aux différents calculateurs d'un véhicule ou d'une machine de communiquer entre eux. Le composant permettant la gestion de ce protocol est le SN65HVD230QDR.
 Le SN65HVD230QDR est un transceiver CAN qui permet de convertir les signaux numériques du microcontrôleur en signaux différentiels compatibles avec le bus CAN. A ce stade, nous n'avons pas ecore établit ce type protocol de communication.
 
+<img src="img/can_bus.png" alt="can_bus" style="width:500px;height:auto;">
+
 ### Contrôle du convertisseur boost
 
 Le VNLD5090-E est un driver de MOSFET 4 canaux qui permet de contrôler un convertisseur boost. Il possède 4 broches de sortie : BOOST, HC1, HC2 et IDLE.
@@ -147,6 +145,7 @@ BOOST : Cette broche permet de contrôler la tension de sortie du convertisseur 
 HC1 et HC2 : Ces broches permettent de contrôler le courant de sortie du convertisseur boost.
 IDLE : Cette broche permet de mettre le convertisseur boost en mode veille.
 
+<img src="img/boost.png" alt="boost" style="width:500px;height:auto;">
 
 description des capteurs/actionneurs, fonctionnements et acquisition
 
