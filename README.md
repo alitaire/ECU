@@ -70,7 +70,7 @@ Les parties décrites ci-dessous permettent de de jeter un oeil à l'intérieur 
 ![schema](img/)
 (schema avec les capteurs/actionneurs)
 
-# Microcontrolleur STM32F407VET6
+#### Microcontrolleur STM32F407VET6
 
 Le STM32F407VET6 est un microcontrôleur 32 bits basé sur le cœur ARM Cortex-M4F. Il est fabriqué par STMicroelectronics et appartient à la famille STM32F407.
 
@@ -79,11 +79,11 @@ Mémoire :
 512 Ko de mémoire Flash
 192 Ko de SRAM
 
-# Gestion des bobines d'allumage
+#### Gestion des bobines d'allumage
 
  Le processeur de l'ECU calcule le moment optimal d'allumage en fonction des données des capteurs. Il envoie ensuite un signal au TC4424AVOA713, qui agit comme un amplificateur de courant. Ce composant contrôle les MOSFETs, des interrupteurs électroniques, pour diriger le courant vers les bobines d'allumage au moment précis. Les bobines d'allumage créent des étincelles électriques, enflammant ainsi le mélange air-carburant dans les cylindres du moteur. 
 
-# Gestion des injecteurs 
+#### Gestion des injecteurs 
 
 La configuration présentée ci-dessus est structurée autour des transistors MOSFET VND14NV04TR-E, utilisés pour réguler les injecteurs dans le calculateur moteur. La stratégie de contrôle du calculateur détermine le moment optimal pour l'injection, en prenant en compte divers paramètres tels que le régime moteur, la température et la charge d'admission.
 
@@ -92,7 +92,7 @@ L'électronique intégrée à l'injecteur est équipée de diodes assurant une p
 L'alimentation électrique est fournie par une source de 12V, indispensable pour garantir un fonctionnement contrôlé et sécurisé du processus d'injection.
 
 
-# Capteur Vilbrequin 
+#### Capteur Vilbrequin 
 
 Le capteur de vilebrequin est conçu pour capturer un signal compris dans la plage de pulsations carrées de 0 à 5 volts. L'utilisation d'un capteur optoélectronique à effet Hall est indispensable pour répondre aux exigences d'acquisition de cette onde carrée numérique.
 
@@ -108,21 +108,21 @@ Ensemble Capteurs (Huile, Pression Essence, O2, accélérateur,liquide de refroi
 Les capteurs comprennent ceux de pression d'huile, de pression de carburant, d'oxygène, d'accélérateur, de liquide de refroidissement, de température d'admission d'air, de pression barométrique et de pression absolue du collecteur d'admission (MAP). Tous ces capteurs sont connectés aux entrées analogiques de notre microcontrôleur. En amont du microcontrôleur, des filtres passe-bas RC sont utilisés pour éliminer les fréquences parasites des signaux des capteurs. De plus, des ponts diviseurs sont placés en amont du microcontrôleur pour réduire la tension de 5V à 3,3V, assurant ainsi une acquisition précise et sécurisée des données pour le microcontrôleur STM32.
 
 
-# Gestion de l'alimentation 
+#### Gestion de l'alimentation 
 
 La gestion de l'alimentation de votre ECU implique un système d'alimentation double. Elle utilise une alimentation de 5V avec une sortie maximale de 3A, fournissant une puissance suffisante pour le fonctionnement global du système. De plus, une alimentation de 3,3V est utilisée, avec un courant maximal de 0,8A, spécifiquement adaptée au microcontrôleur STM32. Cette configuration à double tension assure une distribution d'énergie fiable et efficace, répondant aux exigences spécifiques à la fois de l'ECU dans son ensemble et du microcontrôleur STM32 qui le compose.
 
 
-# Ensemble capteur sonde lambda 
+#### Ensemble capteur sonde lambda 
 
 La sonde lambda génère une tension analogique qui est proportionnelle à la concentration d'oxygène dans les gaz d'échappement. Le CY8C24223A est un convertisseur analogique-numérique (CAN) 12 bits qui peut être utilisé pour interfacer une sonde lambda. Le CAN convertit cette tension en un nombre numérique qui peut être utilisé par un microcontrôleur pour calculer le rapport air-carburant.
 
-# Liaion CAN Bus 
+#### Liaion CAN Bus 
 
 Le CAN bus (Controller Area Network) est un réseau de communication série utilisé dans les applications automobiles et industrielles. Il permet aux différents calculateurs d'un véhicule ou d'une machine de communiquer entre eux. Le composant permettant la gestion de ce protocol est le SN65HVD230QDR.
 Le SN65HVD230QDR est un transceiver CAN qui permet de convertir les signaux numériques du microcontrôleur en signaux différentiels compatibles avec le bus CAN. A ce stade, nous n'avons pas ecore établit ce type protocol de communication.
 
-# Contrôle du convertisseur boost
+#### Contrôle du convertisseur boost
 
 Le VNLD5090-E est un driver de MOSFET 4 canaux qui permet de contrôler un convertisseur boost. Il possède 4 broches de sortie : BOOST, HC1, HC2 et IDLE.
 
