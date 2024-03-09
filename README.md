@@ -118,18 +118,21 @@ Les capteurs comprennent ceux de pression d'huile, de pression de carburant, d'o
 ### Gestion de l'alimentation 
 
 
-  <img src="img/alimentation.png" alt="alimentation" style="width:500px;height:auto;">
+
 
 La gestion de l'alimentation de votre ECU implique un système d'alimentation double. Elle utilise une alimentation de 5V avec une sortie maximale de 3A, fournissant une puissance suffisante pour le fonctionnement global du système. De plus, une alimentation de 3,3V est utilisée, avec un courant maximal de 0,8A, spécifiquement adaptée au microcontrôleur STM32. Cette configuration à double tension assure une distribution d'énergie fiable et efficace, répondant aux exigences spécifiques à la fois de l'ECU dans son ensemble et du microcontrôleur STM32 qui le compose.
 
+  <img src="img/alimentation.png" alt="alimentation" style="width:500px;height:auto;">
 
 ### Ensemble capteur sonde lambda 
 
 
- <img src="img/lambda.png" alt="lambda" style="width:500px;height:auto;">
+
 
 
 La sonde lambda génère une tension analogique qui est proportionnelle à la concentration d'oxygène dans les gaz d'échappement. Le CY8C24223A est un convertisseur analogique-numérique (CAN) 12 bits qui peut être utilisé pour interfacer une sonde lambda. Le CAN convertit cette tension en un nombre numérique qui peut être utilisé par un microcontrôleur pour calculer le rapport air-carburant.
+
+ <img src="img/lambda.png" alt="lambda" style="width:500px;height:auto;">
 
 ### Liaion CAN Bus 
 
