@@ -85,13 +85,14 @@ Mémoire :
 
 ### Gestion des injecteurs 
 
-![injecteurs](img/injecteurs.png)
-
 La configuration présentée ci-dessus est structurée autour des transistors MOSFET VND14NV04TR-E, utilisés pour réguler les injecteurs dans le calculateur moteur. La stratégie de contrôle du calculateur détermine le moment optimal pour l'injection, en prenant en compte divers paramètres tels que le régime moteur, la température et la charge d'admission.
 
 L'électronique intégrée à l'injecteur est équipée de diodes assurant une protection contre les surtensions susceptibles de survenir au niveau des injecteurs.
 
 L'alimentation électrique est fournie par une source de 12V, indispensable pour garantir un fonctionnement contrôlé et sécurisé du processus d'injection.
+
+![injecteurs](img/injecteurs.png)
+
 
 
 ### Capteur Vilbrequin 
