@@ -107,7 +107,9 @@ Le MAX9924 est équipé d'un seuil de crête adaptable, ce qui signifie qu'il pe
 
 Lorsqu'un signal dépasse le seuil défini, le MAX9924 génère une sortie logique qui peut être utilisée pour déclencher des actions dans le système.
 
- ![capteur_hall](img/capteur_hall.png =300x200))
+ ![capteur_hall](img/capteur_hall.png =300x200)
+ <img src="img/capteur_hall.png" alt="image" style="width:300px;height:auto;">
+
 
 Ensemble Capteurs (Huile, Pression Essence, O2, accélérateur,liquide de refroidissement, température admission d’air, Capteur Barométrique et capteur MAP)
 
