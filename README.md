@@ -83,6 +83,8 @@ Mémoire :
 
  Le processeur de l'ECU calcule le moment optimal d'allumage en fonction des données des capteurs. Il envoie ensuite un signal au TC4424AVOA713, qui agit comme un amplificateur de courant. Ce composant contrôle les MOSFETs, des interrupteurs électroniques, pour diriger le courant vers les bobines d'allumage au moment précis. Les bobines d'allumage créent des étincelles électriques, enflammant ainsi le mélange air-carburant dans les cylindres du moteur. 
 
+ ![bobines](img/bobines.png)
+
 ### Gestion des injecteurs 
 
 La configuration présentée ci-dessous est structurée autour des transistors MOSFET VND14NV04TR-E, utilisés pour réguler les injecteurs dans le calculateur moteur. La stratégie de contrôle du calculateur détermine le moment optimal pour l'injection, en prenant en compte divers paramètres tels que le régime moteur, la température et la charge d'admission.
