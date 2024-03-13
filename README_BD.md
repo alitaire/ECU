@@ -91,56 +91,104 @@ description des capteurs/actionneurs, fonctionnements et acquisition
 ### L'ECU (Engine Control Unit / Electronic Control Unit)
 
 
-## Partie programme
 
-intro
+## Partie Programme
+
+Pour fonctionner, le projet a besoin de divers programmes, ceux-ci sont présentés et expliqués dans les parties qui suivent.
 
 ### Monitoring des données sur PC
 
-Afin de pouvoir lire les données en temps réel, analyse d'une app existance (TunerStudio) utilisé pour speeduino ou encore Megasquirt, après analyse de la doc, conclusion que cela prendrais trop de temps dans les 6 mois pour son utilisation, a la place conception d'une petite application PC en python car rapide à mettre en place et compétence acquise ulérieure, utilisation d'une structure MCV (Modele Controller View) et communication en UART avec l'ECU
+Afin de pouvoir lire les données en temps réel de l'ECU depuis un PC, la mise en place d'un outil a été étudiée. Dans un premier temps, une analyse d'un projet existant nommé TunerStudio a été réalisée. Il s'agit d'un outil de monitoring avec une version gratuite qui possède une API pour communiquer et récolter les données d'un ECU, il est notamment utilisé pour le projet Speeduino ou encore Megasquirt.
 
-![schema MCV]()
-Description d'un MCV
+![TunerStudio](/img/presentation/tunerstudio.png)
 
-![vue application]()
-Description des fonctionnalité de l'application
+Après analyse de la documentation de l'outil, il s'est avéré que sa mise en place est possible mais prendrait plus de temps que nécessaire pour notre projet. Suite à ces recherches, nous avons convenu de développer notre propre outil simplifié avec une interface graphique en Python. Le développement serait plus rapide avec nos connaissances et expériences avec ce langage ainsi que la mise en place d'application. Cette application utilise une architecture MVC.
 
-Retour sur idée de base, utilisation de TunerStudio carapplication maintenue dans le temps et un gros dev derrière, prendrais plus de temps pour dev une appli équivalente (aussi complète).
+![Schéma MVC](/img/MCV.png)
 
-### Gestion moteur sur ECU
+Dans le contexte de l'architecture logicielle, MVC (Modèle - Contrôleur - Vue) est un pattern de conception qui divise une application en trois composants principaux pour améliorer la maintenabilité et la réutilisabilité du code. Le modèle représente les données de l'application et leur logique métier, le contrôleur agit comme un intermédiaire entre le modèle et la vue, gérant les interactions de l'utilisateur et mettant à jour le modèle en conséquence, tandis que la vue est responsable de l'affichage des données au travers de l'interface utilisateur. Ce modèle de conception favorise la séparation des préoccupations, ce qui facilite la modification et l'évolution de chaque composant indépendamment des autres, ce qui est essentiel dans le développement logiciel évolutif.
 
-Analyse d'un projet similaire (speeduino)
+![Vue de l'application](/img/gui_main.png)
 
-Suite à cette analyse, une structure choisi:
-- Main : Determiner les besoins du moteur et Gérer l'allumage et l'injection
-- Globals : Définition des varibales/fonctions utiles pour tous les modules
-- Inits : Initilise les données et modules du calculateur 
-- Sensors : Gestion de l'acquisition des données des capteurs
-- Decoders : Décodage des valeurs de certains capteurs
-- Comms : Gestion de la communication entre la carte et l'extérieur
-- Log : Archivage des activitées (Optionel)
+Comme présenté au-dessus, notre outils de monitoring permettra d'afficher en temps réels divers informations à l'aide de type d'afficheur:
 
-Pour plus de détails, consulter [structure_code.md](/docs/autres/structure_code.md)
+- Voyant clignotant pour les informations binaires
+- Compteur pour les informations analogiques
 
-#### Main
-Détails
-#### Globals
-Détails
-#### Inits
-Détails
-#### Sensors
-Détails
-#### Decoders
-Détails
-#### Comms
-Détails
-#### Logs
-Détails
+Parmis les informations remonté et affiché, on retrouve:
+
+- Ouverture du papillon d'admision d'air (plage = 0 - 100%)
+- Vitesse moteur (0 - 8000 tr/min)
+- Température de l'air à l'admission (-30 - 90 °C)
+- Température du liquide de reffroidissement (-30 - 150 °C)
+- Etat des injecteurs (Inactif/Actif )
+- Etat des bobines d'allumage (Inactif/Actif) 
+
+De plus l'application possède une interface pour gérer la communication avec l'ECU:
+
+![interface comm](img/gui_com.png)
+
+Pour initiliser une communication, l'utilisateur doit sélectionner et renseigner certains paramètres:
+
+- **Connection Type** : Choix du type de communication avec l'ECU, à ce jour seul le choix **UART** est disponible
+- **Connection Settings**
+  - **Port** : Choix du port de communication
+  - **Baud rate**: Choix de la vitesse de communication
+
+Une fois ces paramètres validé, l'utilisateur peut initier une tentative de connection avec l'ECU avec un appuie sur le bouton **Connect**, si la connection réussi, un message en dessous de la fenêtre affichera **Connected** sinon **Not Connected**, l'utilisateur une fois connecté peut décider de stopper la communication à l'aide du bouton **Disconnect**.
+
+L'ensemble des codes permettant le fonctionnement de l'application graphique est situé [ici](/software/GUI/).
+
+Pour lancer l'interface, assurez-vous dans un premier temps d'avoir les bibliothèques nécessaires. Ensuite, via un terminal, placez-vous dans le répertoire [GUI](/software/GUI/) et exécutez :
+
+```
+python3 main.py
+```
+
+Suite à quoi, l'interface logicielle devrait s'ouvrir et l'utilisateur pourra utiliser l'application pour se connecter à un ECU et débuter le monitoring.
+
+### Gestion moteur sur carte
+
+Afin de gérer les différents périphériques disponibles (capteurs + actionneurs), nous devons réaliser un programme permettant leur contrôle, qui une fois écrit sera compilé puis envoyé dans la mémoire flash du microcontrôleur, nous permettant de gérer le moteur. Pour ce faire, une analyse de projets existants a été réalisée sur 2 projets similaires open-source :
+
+- **MegaSquirt V2** : Il s'agit d'un système de gestion moteur open-source, conçu pour offrir un contrôle précis de l'injection de carburant et de l'allumage des moteurs. Avec sa conception modulaire et sa programmabilité étendue, il permet aux amateurs et aux professionnels de personnaliser les performances de leur moteur. MegaSquirt V2 est largement utilisé dans le monde du tuning automobile pour améliorer les performances et la fiabilité des moteurs, offrant une alternative abordable aux systèmes commerciaux propriétaires.
+
+- **Speeduino** : Il s'agit d'un projet open-source offrant une solution abordable et modifiable pour la gestion moteur des voitures, permettant aux passionnés de tuning automobile de contrôler l'injection de carburant, l'allumage et d'autres paramètres moteur grâce à un ECU basé sur des composants électroniques facilement accessibles et personnalisables.
+
+Le projet analysé MegaSquirt V2 étant plus ancien et moins documenté que Speeduino, l'analyse de Speeduino a été privilégiée. Le projet comporte plus de 88 fichiers de code et chaque fichier est plus ou moins conséquent (certains dépassent 1000 lignes de code + commentaires). Cette analyse prend du temps et à ce jour n'est pas terminée, cependant nous avons tout de même pu réaliser un schéma de l'architecture générale du code et son fonctionnement :
+
+![Schéma du code](img/scheme_main.png)
+
+De plus, une structure de code a été choisie :
+- Main : Déterminer les besoins du moteur et gérer l'allumage et l'injection.
+- Globals : Définition des variables/fonctions utiles pour tous les modules.
+- Inits : Initialisation des données et modules du calculateur.
+- Sensors : Gestion de l'acquisition des données des capteurs.
+- Decoders : Décodage des valeurs de certains capteurs.
+- Comms : Gestion de la communication entre la carte et l'extérieur.
+- Log : Archivage des activités (Optionnel).
+
+Pour plus de détails, consultez [structure_code.md](/docs/autres/structure_code.md).
+
+Pour des raisons de simplicité, l'écriture du code a débuté avec le fichier [globals.h](/software/carte/dev/inc/globals.h). En effet, ce fichier référence toutes les définitions, structures de données et variables qui sont globales au bon fonctionnement du programme principal (main.c) et des programmes annexes. Pour cette raison, il était plus intéressant de commencer la programmation par ce fichier.
+
+Description du code dans globals.h. **TODO**
+
+La programmation et les essais de codes sont réalisés via l'IDE **STM32CubeIDE**. Il s'agit d'un environnement de développement puissant et convivial spécialement conçu pour simplifier le processus de développement d'applications embarquées pour les microcontrôleurs STM32. Il offre une combinaison d'outils avancés, de fonctionnalités de configuration et de débogage, ainsi qu'une prise en charge complète des microcontrôleurs STM32.
+
 
 ## Etat du projet et suite
 
+## Glossaire
+
+- AFR = Air Fuel Ratio
+- TPS = Throttle Position Sensor
+- MAP = Manifold Air Pressure
+- MAF = Manifold Air Field
+- IAT = Intake Air Temperature
+
 ## Ressources
-- Speeduino
-- TunerStudio
-- Megasquirt (check nom)
-- Autres [ressources](/docs/autres/ressources.md)
+- [Speeduino](https://speeduino.com/home/)
+- [TunerStudio](https://www.tunerstudio.com/)
+- [Megasquirt](https://www.megasquirt.fr/)
+- [Ressources complémentaire](/docs/autres/ressources.md)
