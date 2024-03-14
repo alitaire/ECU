@@ -39,7 +39,7 @@ et les 2 actionneurs:
 - bobine d'allumage:
 - Injecteur de carburant:
 
-![scheam]()
+![4temps](img/4temps.png)
 
 [video]()
 
@@ -96,7 +96,7 @@ L'électronique intégrée à l'injecteur est équipée de diodes assurant une p
 
 L'alimentation électrique est fournie par une source de 12V, indispensable pour garantir un fonctionnement contrôlé et sécurisé du processus d'injection.
 
-![injecteurs](img/injecteurs.png)
+c
 
 
 
