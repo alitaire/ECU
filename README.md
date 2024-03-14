@@ -11,15 +11,37 @@
 
 Ce projet vise à mettre en place une gestion moteur programmé sur carte électronique, communement appeler ECU (Electronic Control Unit ou Engine Control Unit), l'architecture moteur à gérer est un moteur thermique essence atmosphérique 4 temps, la carte électronique sera controler par un microcontroleur stm32. 
 
+[![Alt text](https://img.youtube.com/vi/zVGuhVYfIZs/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=zVGuhVYfIZs)v
+
 ### Fonctionnement d'un moteur essence 4 temps
  
 Il est important de rappeler le fonctionnement d'un moteur thermique essence à 4 temps:
 
-chatgpt
+ <img src="img/4temps.png" alt="image" style="width:500px;height:auto;">
 
-![schema]()
+Un moteur thermique à quatre temps, également appelé moteur à combustion interne à quatre temps, est un type de moteur qui complète un cycle de quatre phases distinctes pour produire du mouvement à partir de la combustion d'un carburant. Voici comment fonctionne un moteur thermique à quatre temps :
 
-[video]()
+1. Admission :
+
+- Lors du premier temps, l'admission, le piston descend dans le cylindre, créant un espace vide au-dessus de lui.
+- La soupape d'admission s'ouvre, permettant au mélange air-carburant (essence ou diesel) de pénétrer dans le cylindre depuis le système d'admission.
+
+2. Compression :
+
+- Lors du deuxième temps, la compression, le piston remonte dans le cylindre, comprimant le mélange air-carburant.
+- Les soupapes d'admission et d'échappement sont fermées pour sceller le cylindre.
+
+3. Combustion et Expansion :
+
+- Au troisième temps, la combustion, une bougie d'allumage (dans le cas d'un moteur à essence) ou la compression de l'air (dans le cas d'un moteur diesel) allume le mélange air-carburant.
+- Cette combustion produit une expansion rapide des gaz brûlés, ce qui pousse le piston vers le bas.
+- L'énergie de cette expansion est convertie en mouvement linéaire du piston, qui est transféré au vilebrequin par le biais de la bielle.
+
+4. Échappement :
+
+- Lors du quatrième temps, l'échappement, le piston remonte à nouveau dans le cylindre.
+- La soupape d'échappement s'ouvre, permettant aux gaz d'échappement produits par la combustion de s'échapper du cylindre vers le système d'échappement du moteur.
+- Une fois les gaz d'échappement évacués, le cycle recommence.
 
 ### Les périphériques moteurs
 
@@ -36,7 +58,7 @@ et les 2 actionneurs:
 - bobine d'allumage:
 - Injecteur de carburant:
 
-![scheam]()
+
 
 [video]()
 
@@ -93,7 +115,7 @@ L'électronique intégrée à l'injecteur est équipée de diodes assurant une p
 
 L'alimentation électrique est fournie par une source de 12V, indispensable pour garantir un fonctionnement contrôlé et sécurisé du processus d'injection.
 
-![injecteurs](img/injecteurs.png)
+c
 
 
 
