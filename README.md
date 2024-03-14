@@ -11,6 +11,8 @@
 
 Ce projet vise à mettre en place une gestion moteur programmé sur carte électronique, communement appeler ECU (Electronic Control Unit ou Engine Control Unit), l'architecture moteur à gérer est un moteur thermique essence atmosphérique 4 temps, la carte électronique sera controler par un microcontroleur stm32. 
 
+[![Alt text](https://img.youtube.com/vi/zVGuhVYfIZs/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=zVGuhVYfIZs)v
+
 ### Fonctionnement d'un moteur essence 4 temps
  
 Il est important de rappeler le fonctionnement d'un moteur thermique essence à 4 temps:
@@ -19,7 +21,7 @@ chatgpt
 
 ![schema]()
 
-[![Alt text](https://img.youtube.com/vi/zVGuhVYfIZs/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=zVGuhVYfIZs)
+
 
 
 ### Les périphériques moteurs
