@@ -110,32 +110,32 @@ Dans le contexte de l'architecture logicielle, MVC (Modèle - Contrôleur - Vue)
 
 ![Vue de l'application](/img/gui_main.png)
 
-Comme présenté au-dessus, notre outils de monitoring permettra d'afficher en temps réels divers informations à l'aide de type d'afficheur:
+Comme présenté ci-dessus, notre outil de monitoring permettra d'afficher en temps réel diverses informations à l'aide de différents types d'afficheurs :
 
-- Voyant clignotant pour les informations binaires
-- Compteur pour les informations analogiques
+- Voyant clignotant pour les informations binaires.
+- Compteur pour les informations analogiques.
 
-Parmis les informations remonté et affiché, on retrouve:
+Parmi les informations remontées et affichées, on retrouve :
 
-- Ouverture du papillon d'admision d'air (plage = 0 - 100%)
-- Vitesse moteur (0 - 8000 tr/min)
-- Température de l'air à l'admission (-30 - 90 °C)
-- Température du liquide de reffroidissement (-30 - 150 °C)
-- Etat des injecteurs (Inactif/Actif )
-- Etat des bobines d'allumage (Inactif/Actif) 
+- Ouverture du papillon d'admission d'air (plage : 0 - 100%).
+- Vitesse moteur (0 - 8000 tr/min).
+- Température de l'air à l'admission (-30 - 90 °C).
+- Température du liquide de refroidissement (-30 - 150 °C).
+- État des injecteurs (Inactif/Actif).
+- État des bobines d'allumage (Inactif/Actif).
 
-De plus l'application possède une interface pour gérer la communication avec l'ECU:
+De plus, l'application possède une interface pour gérer la communication avec l'ECU :
 
-![interface comm](img/gui_com.png)
+![Interface de communication](img/gui_com.png)
 
-Pour initiliser une communication, l'utilisateur doit sélectionner et renseigner certains paramètres:
+Pour initialiser une communication, l'utilisateur doit sélectionner et renseigner certains paramètres :
 
-- **Connection Type** : Choix du type de communication avec l'ECU, à ce jour seul le choix **UART** est disponible
-- **Connection Settings**
-  - **Port** : Choix du port de communication
-  - **Baud rate**: Choix de la vitesse de communication
+- **Type de connexion** : Choix du type de communication avec l'ECU. À ce jour, seul le choix **UART** est disponible.
+- **Paramètres de connexion**
+  - **Port** : Choix du port de communication.
+  - **Débit en bauds** : Choix de la vitesse de communication.
 
-Une fois ces paramètres validé, l'utilisateur peut initier une tentative de connection avec l'ECU avec un appuie sur le bouton **Connect**, si la connection réussi, un message en dessous de la fenêtre affichera **Connected** sinon **Not Connected**, l'utilisateur une fois connecté peut décider de stopper la communication à l'aide du bouton **Disconnect**.
+Une fois ces paramètres validés, l'utilisateur peut initier une tentative de connexion avec l'ECU en appuyant sur le bouton **Connect**. Si la connexion réussit, un message en dessous de la fenêtre affichera **Connected**, sinon **Not Connected**. Une fois connecté, l'utilisateur peut décider de stopper la communication à l'aide du bouton **Disconnect**.
 
 L'ensemble des codes permettant le fonctionnement de l'application graphique est situé [ici](/software/GUI/).
 
@@ -172,7 +172,6 @@ Pour plus de détails, consultez [structure_code.md](/docs/autres/structure_code
 
 Pour des raisons de simplicité, l'écriture du code a débuté avec le fichier [globals.h](/software/carte/dev/inc/globals.h). En effet, ce fichier référence toutes les définitions, structures de données et variables qui sont globales au bon fonctionnement du programme principal (main.c) et des programmes annexes. Pour cette raison, il était plus intéressant de commencer la programmation par ce fichier.
 
-Description du code dans globals.h. **TODO**
 
 La programmation et les essais de codes sont réalisés via l'IDE **STM32CubeIDE**. Il s'agit d'un environnement de développement puissant et convivial spécialement conçu pour simplifier le processus de développement d'applications embarquées pour les microcontrôleurs STM32. Il offre une combinaison d'outils avancés, de fonctionnalités de configuration et de débogage, ainsi qu'une prise en charge complète des microcontrôleurs STM32.
 
