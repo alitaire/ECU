@@ -19,7 +19,7 @@ chatgpt
 
 ![schema]()
 
-[[![Alt text](https://img.youtube.com/vi/zVGuhVYfIZs/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=zVGuhVYfIZs)
+[[![Alt text](https://img.youtube.com/vi/zVGuhVYfIZs/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=zVGuhVYfIZs)]
 
 
 ### Les périphériques moteurs
