@@ -19,8 +19,7 @@ Il est important de rappeler le fonctionnement d'un moteur thermique essence à 
 
 chatgpt
 
-![schema]()
-
+ <img src="img/4temps.png" alt="image" style="width:500px;height:auto;">
 
 
 
@@ -39,7 +38,7 @@ et les 2 actionneurs:
 - bobine d'allumage:
 - Injecteur de carburant:
 
-![4temps](img/4temps.png)
+
 
 [video]()
 
