@@ -19,7 +19,7 @@ Il est important de rappeler le fonctionnement d'un moteur thermique essence à 
 
  <img src="img/4temps.png" alt="image" style="width:500px;height:auto;">
 
-n moteur thermique à quatre temps, également appelé moteur à combustion interne à quatre temps, est un type de moteur qui complète un cycle de quatre phases distinctes pour produire du mouvement à partir de la combustion d'un carburant. Voici comment fonctionne un moteur thermique à quatre temps :
+Un moteur thermique à quatre temps, également appelé moteur à combustion interne à quatre temps, est un type de moteur qui complète un cycle de quatre phases distinctes pour produire du mouvement à partir de la combustion d'un carburant. Voici comment fonctionne un moteur thermique à quatre temps :
 
 Admission :
 
