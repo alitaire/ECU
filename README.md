@@ -17,11 +17,28 @@ Ce projet vise à mettre en place une gestion moteur programmé sur carte élect
  
 Il est important de rappeler le fonctionnement d'un moteur thermique essence à 4 temps:
 
-chatgpt
-
  <img src="img/4temps.png" alt="image" style="width:500px;height:auto;">
 
+n moteur thermique à quatre temps, également appelé moteur à combustion interne à quatre temps, est un type de moteur qui complète un cycle de quatre phases distinctes pour produire du mouvement à partir de la combustion d'un carburant. Voici comment fonctionne un moteur thermique à quatre temps :
 
+Admission :
+
+Lors du premier temps, l'admission, le piston descend dans le cylindre, créant un espace vide au-dessus de lui.
+La soupape d'admission s'ouvre, permettant au mélange air-carburant (essence ou diesel) de pénétrer dans le cylindre depuis le système d'admission.
+Compression :
+
+Lors du deuxième temps, la compression, le piston remonte dans le cylindre, comprimant le mélange air-carburant.
+Les soupapes d'admission et d'échappement sont fermées pour sceller le cylindre.
+Combustion et Expansion :
+
+Au troisième temps, la combustion, une bougie d'allumage (dans le cas d'un moteur à essence) ou la compression de l'air (dans le cas d'un moteur diesel) allume le mélange air-carburant.
+Cette combustion produit une expansion rapide des gaz brûlés, ce qui pousse le piston vers le bas.
+L'énergie de cette expansion est convertie en mouvement linéaire du piston, qui est transféré au vilebrequin par le biais de la bielle.
+Échappement :
+
+Lors du quatrième temps, l'échappement, le piston remonte à nouveau dans le cylindre.
+La soupape d'échappement s'ouvre, permettant aux gaz d'échappement produits par la combustion de s'échapper du cylindre vers le système d'échappement du moteur.
+Une fois les gaz d'échappement évacués, le cycle recommence.
 
 ### Les périphériques moteurs
 
