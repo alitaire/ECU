@@ -19,8 +19,8 @@ chatgpt
 
 ![schema]()
 
-[![Alt text](https://img.youtube.com/vi/configuroweb/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=shared)
-
+[[![Alt text](https://img.youtube.com/vi/zVGuhVYfIZs/0.jpg)](https://youtu.be/zVGuhVYfIZs?feature=zVGuhVYfIZs)
+](https://youtu.be/zVGuhVYfIZs?feature=shared)
 
 ### Les périphériques moteurs
 
