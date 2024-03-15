@@ -86,10 +86,6 @@ Elle est constitué de différents ensembles constitués d'éléments électroni
 Les parties décrites ci-dessous permettent de de jeter un oeil à l'intérieur du système pour comprendre comment l'électronique de l'ECU est organisée pour rendre ainsi, le moteur aussi performant que possible.
 
 
-### Les périphériques moteurs
-
-![schema](img/)
-(schema avec les capteurs/actionneurs)
 
 ### Microcontrolleur STM32F407VET6
 
