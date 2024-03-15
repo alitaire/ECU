@@ -171,6 +171,8 @@ Suite à cette phase de simulation, une fois que nous avons confirmé la validit
 
 <img src="img/routage.png" alt="boost" style="width:400px;height:auto;">
 
+Nous avons par la suite passé commande du PCB de la carte, accompagné des composants déjà soudés. Pour ce faire, nous avons généré les fichiers Gerber ainsi que la liste des composants (BOM) à partir du logiciel EasyEDA. Ensuite, ces fichiers ont été transmis à JLCPCB pour la fabrication. Toutefois, certains composants n'étaient pas disponibles chez ce fournisseur, donc nous les avons achetés sur d'autres sites et procédé à leur soudage nous-mêmes.
+
 ## Partie Programme
 
 Pour fonctionner, le projet a besoin de divers programmes, ceux-ci sont présentés et expliqués dans les parties qui suivent.
