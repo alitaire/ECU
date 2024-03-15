@@ -110,6 +110,8 @@ L'électronique intégrée à l'injecteur est équipée de diodes assurant une p
 
 L'alimentation électrique est fournie par une source de 12V, indispensable pour garantir un fonctionnement contrôlé et sécurisé du processus d'injection.
 
+ <img src="img/injecteurs.png" alt="image" style="width:500px;height:auto;">
+
 ### Capteur Vilbrequin 
 
 Le capteur de vilebrequin est conçu pour capturer un signal compris dans la plage de pulsations carrées de 0 à 5 volts. L'utilisation d'un capteur optoélectronique à effet Hall est indispensable pour répondre aux exigences d'acquisition de cette onde carrée numérique.
