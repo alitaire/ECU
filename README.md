@@ -175,6 +175,10 @@ Nous avons par la suite passé commande du PCB de la carte, accompagné des comp
 
 <img src="img/commande.png" alt="boost" style="width:500px;height:auto;">
 
+
+Par la suite, une fois la phase de conception terminée, nous avons procédé aux premiers essais préliminaires de la carte électronique. Ces essais étaient cruciaux pour évaluer la fonctionnalité de notre système dans des conditions réelles. Pour ce faire, nous avons commencé par programmer un premier code dans le microcontrôleur STM32 à l'aide d'un STLink V2, permettant ainsi d'initialiser les différents composants et de mettre en place les premières fonctionnalités.
+
+Ensuite, pour valider le bon fonctionnement de l'électronique associée aux capteurs et aux actionneurs, nous avons utilisé un multimètre et un oscilloscope.
 ## Partie Programme
 
 Pour fonctionner, le projet a besoin de divers programmes, ceux-ci sont présentés et expliqués dans les parties qui suivent.
