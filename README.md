@@ -256,10 +256,19 @@ La programmation et les essais de codes sont réalisés via l'IDE **STM32CubeIDE
 
 ## Etat du projet et suite
 
+### Partie Electronique
+
 todo
+
+### Partie Programme
+
+Pour le **Monitoring des données**, le programme actuel n'est pas encore totalement opérationnel, quelques réglages restent à effectuer pour l'affichage et la récupération des données. Cependant, une décision a été prise concernant la possibilité de l'utilisation de TunerStudio. En effet, les fonctionnalités du logiciel sont plus complètes que notre application actuelle et il est utilisé sur des projets similaires. Cette solution a fait ses preuves et bénéficie d'un maintien dans le temps. Opter pour cette solution nous permettrait de réduire la charge de développement tout en garantissant un monitoring de qualité, ayant été pensé et revu au fil du temps.
+
+Pour la **Gestion moteur**, l'analyse des codes de Speeduino est en cours et doit être poursuivie afin d'améliorer notre compréhension du système dans sa globalité. Cette démarche nous permettra ensuite de prendre les bonnes décisions pour le développement de notre propre code. De plus, cela nous aidera à éviter des erreurs basiques et nous permettra d'apprendre les bonnes méthodes et pratiques de programmation dans le domaine de l'embarqués grâce à la communauté open-source du projet. Après la programmation de notre code, des essais doivent être réalisés pour vérifier le bon fonctionnement de la carte et de son programme sur un banc d'essai. Enfin, le test final consistera à câbler notre ECU sur un vrai moteur et à vérifier le bon fonctionnement en surveillant son activité en situation réelle.
 
 ## Glossaire
 
+- ECU = Engine Control Unit
 - AFR = Air Fuel Ratio
 - TPS = Throttle Position Sensor
 - MAP = Manifold Air Pressure
