@@ -280,6 +280,8 @@ Pour le **Monitoring des données**, le programme actuel n'est pas encore totale
 
 Pour la **Gestion moteur**, l'analyse des codes de Speeduino est en cours et doit être poursuivie afin d'améliorer notre compréhension du système dans sa globalité. Cette démarche nous permettra ensuite de prendre les bonnes décisions pour le développement de notre propre code. De plus, cela nous aidera à éviter des erreurs basiques et nous permettra d'apprendre les bonnes méthodes et pratiques de programmation dans le domaine de l'embarqués grâce à la communauté open-source du projet. Après la programmation de notre code, des essais doivent être réalisés pour vérifier le bon fonctionnement de la carte et de son programme sur un banc d'essai. Enfin, le test final consistera à câbler notre ECU sur un vrai moteur et à vérifier le bon fonctionnement en surveillant son activité en situation réelle.
 
+<img src="img/carte.png" alt="carte" style="width:400px;height:auto;">
+
 ## Glossaire
 
 - ECU = Engine Control Unit
