@@ -160,7 +160,6 @@ IDLE : Cette broche permet de mettre le convertisseur boost en mode veille.
 
 <img src="img/boost.png" alt="boost" style="width:500px;height:auto;">
 
-description des capteurs/actionneurs, fonctionnements et acquisition
 
 ### L'ECU (Engine Control Unit / Electronic Control Unit)
 
