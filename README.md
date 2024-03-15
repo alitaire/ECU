@@ -169,7 +169,7 @@ La première étape de notre processus consistait à clarifier et définir les d
 
 Suite à cette phase de simulation, une fois que nous avons confirmé la validité de nos conceptions, nous avons progressé vers l'étape suivante : le routage complet de la carte électronique. Cette tâche a été entreprise en utilisant le logiciel EasyEDA, qui offre des fonctionnalités avancées pour le dessin de circuits imprimés. Grâce à cet outil, nous avons pu traduire nos schémas en des dispositions physiques et interconnections sur la carte.
 
-<img src="img/routage.png" alt="boost" style="width:500px;height:auto;">
+<img src="img/routage.png" alt="boost" style="width:400px;height:auto;">
 
 ## Partie Programme
 
