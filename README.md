@@ -165,7 +165,11 @@ IDLE : Cette broche permet de mettre le convertisseur boost en mode veille.
 
 ### L'ECU (Engine Control Unit / Electronic Control Unit)
 
-todo
+La première étape de notre processus consistait à clarifier et définir les différents ensembles électroniques que nous devions mettre en œuvre. Pour s'assurer de la viabilité de nos conceptions, nous avons opté pour des simulations initiales à l'aide du logiciel LTSpice. Ces simulations nous ont permis d'analyser le comportement de nos schémas dans des conditions virtuelles, nous donnant ainsi des indications précieuses sur leur fonctionnement et leur conformité aux spécifications requises.
+
+Suite à cette phase de simulation, une fois que nous avons confirmé la validité de nos conceptions, nous avons progressé vers l'étape suivante : le routage complet de la carte électronique. Cette tâche a été entreprise en utilisant le logiciel EasyEDA, qui offre des fonctionnalités avancées pour le dessin de circuits imprimés. Grâce à cet outil, nous avons pu traduire nos schémas en des dispositions physiques et interconnections sur la carte.
+
+<img src="img/routage.png" alt="boost" style="width:500px;height:auto;">
 
 ## Partie Programme
 
