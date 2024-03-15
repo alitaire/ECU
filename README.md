@@ -270,7 +270,9 @@ La programmation et les essais de codes sont réalisés via l'IDE **STM32CubeIDE
 
 ### Partie Electronique
 
-todo
+Pour garantir la compatibilité et la stabilité de l'interface nous devons réaliser des tests entre la carte et les servitudes, ainsi que pour assurer le bon fonctionnement du contrôle de l'asservissement. Pour ce faire, nous allons développer un banc de test numérique.
+
+En parallèle, il est essentiel d'effectuer des tests en conditions réelles sur un moteur thermique afin de valider l'ECU. Cette démarche implique l'implémentation du calculateur sur un moteur thermique à quatre cylindres en utilisant un banc de test comme base. L'objectif est de vérifier l'efficacité opérationnelle du système et de s'assurer du contrôle adéquat du moteur.
 
 ### Partie Programme
 
