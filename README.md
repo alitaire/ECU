@@ -180,7 +180,7 @@ Par la suite, une fois la phase de conception terminée, nous avons procédé au
 
 Ensuite, pour valider le bon fonctionnement de l'électronique associée aux capteurs et aux actionneurs, nous avons utilisé un multimètre et un oscilloscope.
 
-<img src="img/essais.png" alt="boost" style="width:500px;height:auto;">v
+<img src="img/essais.png" alt="boost" style="width:500px;height:auto;">
 
 ## Partie Programme
 
@@ -274,13 +274,13 @@ Pour garantir la compatibilité et la stabilité de l'interface nous devons réa
 
 En parallèle, il est essentiel d'effectuer des tests en conditions réelles sur un moteur thermique afin de valider l'ECU. Cette démarche implique l'implémentation du calculateur sur un moteur thermique à quatre cylindres en utilisant un banc de test comme base. L'objectif est de vérifier l'efficacité opérationnelle du système et de s'assurer du contrôle adéquat du moteur.
 
+![Carte](img/carte.png)
+
 ### Partie Programme
 
 Pour le **Monitoring des données**, le programme actuel n'est pas encore totalement opérationnel, quelques réglages restent à effectuer pour l'affichage et la récupération des données. Cependant, une décision a été prise concernant la possibilité de l'utilisation de TunerStudio. En effet, les fonctionnalités du logiciel sont plus complètes que notre application actuelle et il est utilisé sur des projets similaires. Cette solution a fait ses preuves et bénéficie d'un maintien dans le temps. Opter pour cette solution nous permettrait de réduire la charge de développement tout en garantissant un monitoring de qualité, ayant été pensé et revu au fil du temps.
 
 Pour la **Gestion moteur**, l'analyse des codes de Speeduino est en cours et doit être poursuivie afin d'améliorer notre compréhension du système dans sa globalité. Cette démarche nous permettra ensuite de prendre les bonnes décisions pour le développement de notre propre code. De plus, cela nous aidera à éviter des erreurs basiques et nous permettra d'apprendre les bonnes méthodes et pratiques de programmation dans le domaine de l'embarqués grâce à la communauté open-source du projet. Après la programmation de notre code, des essais doivent être réalisés pour vérifier le bon fonctionnement de la carte et de son programme sur un banc d'essai. Enfin, le test final consistera à câbler notre ECU sur un vrai moteur et à vérifier le bon fonctionnement en surveillant son activité en situation réelle.
-
-<img src="img/carte.png" alt="carte" style="width:400px;height:auto;">
 
 ## Glossaire
 
